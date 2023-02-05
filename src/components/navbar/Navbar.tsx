@@ -10,7 +10,7 @@ const Navbar = () => {
     }
   };
   return (
-    <div className='absolute'>
+    <div className='absolute z-50'>
       <div className='flex flex-row w-screen justify-around py-2 bg-gray-800/50 shadow-lg'>
         <button
           onClick={() => handleClickScroll("sec1")}
