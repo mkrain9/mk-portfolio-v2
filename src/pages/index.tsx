@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [isAboutMeOpen, setIsAboutMeOpen] = useState(false);
+  const [isSkillsOpen, setIsSkillsOpen] = useState(false);
   return (
     <>
       <Head>
@@ -39,6 +40,11 @@ export default function Home() {
                 >
                   Matthew Krain
                 </h1>
+                <h2
+                  className={`${inter.className} text-center font-bold text-xl text-green-300`}
+                >
+                  Full Stack Engineer
+                </h2>
               </div>
             </div>
             <div className='absolute top-20 left-20 z-10'>
@@ -75,6 +81,77 @@ export default function Home() {
                   </p>
                 </div>
               )}
+            </div>
+            <div className='absolute bottom-20 right-20 z-10'>
+              {isSkillsOpen && (
+                <div className='flex flex-col gap-y-2 mt-6'>
+                  <div
+                    className={`${inter.className} text-sm text-slate-300 select-none bg-slate-800 p-2 rounded-2xl border-2 border-green-600`}
+                  >
+                    <div className='flex flex-row gap-x-2'>
+                      <h3 className='text-slate-200 underline decoration-2'>
+                        Languages ::
+                      </h3>
+                      <p> JavaScript, TypeScript, HTML, CSS, Python, C#, VBA</p>
+                    </div>
+                  </div>
+                  <div
+                    className={`${inter.className} text-sm text-slate-300 select-none bg-slate-800 p-2 rounded-2xl border-2 border-green-500`}
+                  >
+                    <div className='flex flex-row gap-x-2'>
+                      <h3 className='text-slate-200 underline decoration-2'>
+                        Framework/Libraries ::
+                      </h3>
+                      <p> React, Node.js, Express, TailwindCSS, SST, Jest</p>
+                    </div>
+                  </div>
+
+                  <div
+                    className={`${inter.className} text-sm text-slate-300 select-none bg-slate-800 p-2 rounded-2xl border-2 border-green-400`}
+                  >
+                    <div className='flex flex-row gap-x-2'>
+                      <h3 className='text-slate-200 underline decoration-2'>
+                        Leadership ::
+                      </h3>
+                      <p>
+                        SAP & Production Team Leader, C.I. Site Leader for
+                        Safety and Sustainability, Training
+                        Developer/Coordinator
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className={`${inter.className} text-sm text-slate-300 select-none bg-slate-800 p-2 rounded-2xl border-2 border-green-300`}
+                  >
+                    <div className='flex flex-row gap-x-2'>
+                      <h3 className='text-slate-200 underline decoration-2'>
+                        Communication ::
+                      </h3>
+                      <p>
+                        Ecolab Global Sustainability Presenter, Site Safety
+                        Trainer
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              <div className='absolute right-0'>
+                <button
+                  className='cursor-pointer flex flex-row gap-x-1'
+                  onClick={() => setIsSkillsOpen(!isSkillsOpen)}
+                >
+                  <h2
+                    className={`${inter.className} select-none text-green-200 active:text-green-100`}
+                  >
+                    Skills
+                  </h2>
+                  {!isSkillsOpen ? (
+                    <BiDownArrow className='mt-1 text-green-400' />
+                  ) : (
+                    <BiUpArrow className='mt-1 text-red-400' />
+                  )}
+                </button>
+              </div>
             </div>
             <video className='z-0' autoPlay loop muted>
               <source src='/intro2.mp4' />
@@ -163,7 +240,7 @@ export default function Home() {
             </h1>
           </div>
         </Section>
-        <Section id='sec3' color='bg-blue-200'>
+        <Section id='sec3' color='bg-slate-900'>
           <div className='bg-slate-900 w-screen pt-20 pb-10 shadow-lg'>
             <h1
               className={`${inter.className} text-center font-bold text-4xl text-slate-300`}
@@ -171,10 +248,13 @@ export default function Home() {
               Projects
             </h1>
           </div>
-          <div className='w-full h-full'>
-            <video autoPlay loop muted>
-              <source src='/sand.mp4' />
-            </video>
+          <div className='flex flex-row snap-x snap-mandatory w-[50%] h-full px-28 overflow-scroll scrollbar-hide border-4'>
+            <div className='border'>
+              <h2>Kit</h2>
+            </div>
+            <div className='border'>
+              <h2>Chuddies</h2>
+            </div>
           </div>
         </Section>
         <Section id='sec4' color='bg-red-200'>
