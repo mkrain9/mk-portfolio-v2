@@ -2,15 +2,19 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import Navbar from "@/components/navbar/Navbar";
-import Section from "@/components/Section";
+import Section from "@/components/containers/Section";
 import { useState } from "react";
 import { BiDownArrow, BiUpArrow } from "react-icons/bi";
+import BlogLink from "@/components/containers/BlogLink";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [isAboutMeOpen, setIsAboutMeOpen] = useState(false);
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
+
+  const [isKnockExpanded, setIsKnockExpanded] = useState(false);
+  const [isChuddiesExpanded, setIsChuddiesExpanded] = useState(false);
   return (
     <>
       <Head>
@@ -21,12 +25,26 @@ export default function Home() {
       </Head>
       <main className='snap-y snap-promixity h-screen w-screen overflow-scroll scrollbar-hide'>
         <Navbar />
-        <Section id='sec1' color='bg-slate-900' size='none'>
-          <div className='relative border-b-4 border-slate-900 shadow-xl'>
-            <div className='absolute w-full h-full top-[30%]'>
-              <div className='flex flex-col items-center'>
-                <div className='flex w-52 h-52 border-2 border-slate-500 rounded-full items-center justify-center shadow bg-slate-800'>
-                  <div className='relative w-full h-full rounded-full overflow-hidden'>
+        <Section id='sec1' color='bg-slate-700' size='h-min'>
+          <div className='relative w-full h-full shadow-xl'>
+            <div className='absolute w-full h-full translate-y-20 z-10'>
+              <div className='flex flex-row justify-center items-center'>
+                <div className='flex justify-between py-2 pr-2 pl-10 rounded-full bg-slate-500/25 w-[40%] h-32 backdrop-blur-md shadow-xl'>
+                  <div className='flex flex-col justify-center'>
+                    <h1
+                      className={`${inter.className} text-start font-bold xl:text-3xl lg:text-3xl md:text-2xl text-slate-400`}
+                    >
+                      Matthew Krain
+                    </h1>
+                    <h2
+                      className={`${inter.className} text-start font-bold xl:text-xl lg:text-xl md:text-md text-sky-300`}
+                    >
+                      Full Stack Engineer
+                    </h2>
+                  </div>
+                </div>
+                <div className='flex xl:w-52 xl:h-52 lg:w-48 lg:h-48 md:w-32 md:h-32 border-2 border-slate-500 rounded-full items-center justify-center shadow bg-slate-800 -translate-x-48 md:-translate-x-20'>
+                  <div className='relative w-full h-full rounded-full overflow-hidden grayscale'>
                     <Image
                       src='/profile.jpg'
                       alt='profile image'
@@ -35,25 +53,16 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <h1
-                  className={`${inter.className} text-center font-bold text-4xl text-slate-300`}
-                >
-                  Matthew Krain
-                </h1>
-                <h2
-                  className={`${inter.className} text-center font-bold text-xl text-green-300`}
-                >
-                  Full Stack Engineer
-                </h2>
               </div>
             </div>
-            <div className='absolute top-20 left-20 z-10'>
+            <div className='absolute bottom-10 right-0 translate-x-[48%] -rotate-45 w-[400%] h-[50%] bg-white backdrop-blur-sm shadow-xl z-0' />
+            <div className='absolute top-20 left-20 z-20'>
               <button
                 className='cursor-pointer flex flex-row gap-x-1'
                 onClick={() => setIsAboutMeOpen(!isAboutMeOpen)}
               >
                 <h2
-                  className={`${inter.className} select-none text-green-200 active:text-green-100`}
+                  className={`${inter.className} select-none text-slate-200 active:text-slate-400`}
                 >
                   About Me
                 </h2>
@@ -82,16 +91,14 @@ export default function Home() {
                 </div>
               )}
             </div>
-            <div className='absolute bottom-20 right-20 z-10'>
+            <div className='absolute bottom-40 right-20'>
               {isSkillsOpen && (
                 <div className='flex flex-col gap-y-2 mt-6'>
                   <div
-                    className={`${inter.className} text-sm text-slate-300 select-none bg-slate-800 p-2 rounded-2xl border-2 border-green-600`}
+                    className={`${inter.className} text-sm text-slate-500 select-none bg-slate-300 p-2 rounded-xl border-gray-600 drop-shadow-xl`}
                   >
                     <div className='flex flex-row gap-x-2'>
-                      <h3 className='text-slate-200 underline decoration-2'>
-                        Languages ::
-                      </h3>
+                      <h3 className='text-slate-500 underline'>Languages ::</h3>
                       <p> JavaScript, TypeScript, HTML, CSS, Python, C#, VBA</p>
                     </div>
                   </div>
@@ -99,7 +106,7 @@ export default function Home() {
                     className={`${inter.className} text-sm text-slate-300 select-none bg-slate-800 p-2 rounded-2xl border-2 border-green-500`}
                   >
                     <div className='flex flex-row gap-x-2'>
-                      <h3 className='text-slate-200 underline decoration-2'>
+                      <h3 className='text-slate-200 underline'>
                         Framework/Libraries ::
                       </h3>
                       <p> React, Node.js, Express, TailwindCSS, SST, Jest</p>
@@ -110,7 +117,7 @@ export default function Home() {
                     className={`${inter.className} text-sm text-slate-300 select-none bg-slate-800 p-2 rounded-2xl border-2 border-green-400`}
                   >
                     <div className='flex flex-row gap-x-2'>
-                      <h3 className='text-slate-200 underline decoration-2'>
+                      <h3 className='text-slate-200 underline'>
                         Leadership ::
                       </h3>
                       <p>
@@ -124,7 +131,7 @@ export default function Home() {
                     className={`${inter.className} text-sm text-slate-300 select-none bg-slate-800 p-2 rounded-2xl border-2 border-green-300`}
                   >
                     <div className='flex flex-row gap-x-2'>
-                      <h3 className='text-slate-200 underline decoration-2'>
+                      <h3 className='text-slate-200 underline'>
                         Communication ::
                       </h3>
                       <p>
@@ -135,13 +142,13 @@ export default function Home() {
                   </div>
                 </div>
               )}
-              <div className='absolute right-0'>
+              <div className='absolute right-0 bottom-0 z-20'>
                 <button
                   className='cursor-pointer flex flex-row gap-x-1'
                   onClick={() => setIsSkillsOpen(!isSkillsOpen)}
                 >
                   <h2
-                    className={`${inter.className} select-none text-green-200 active:text-green-100`}
+                    className={`${inter.className} select-none text-slate-700 active:text-slate-500`}
                   >
                     Skills
                   </h2>
@@ -153,9 +160,21 @@ export default function Home() {
                 </button>
               </div>
             </div>
+
+            <div className='xl:block lg:flex w-full h-full z-0'>
+              <Image
+                className='mx-auto'
+                src='/planebuildLG.jpg'
+                alt='laptop'
+                width={2000}
+                height={1000}
+                priority
+              />
+            </div>
+            {/** 
             <video className='z-0' autoPlay loop muted>
               <source src='/intro2.mp4' />
-            </video>
+            </video>*/}
           </div>
           {/*
           <div className='bg-slate-800 w-screen pt-20 pb-10 shadow-lg'>
@@ -230,43 +249,388 @@ export default function Home() {
            </div>
           </div>*/}
         </Section>
+        <Section id='sec2' color='bg-slate-700' size=''>
+          <div className='relative w-full h-full'>
+            <div className='w-full h-full shadow-xl'>
+              <div className='w-full pt-20 pb-10 shadow-lg'>
+                <h1
+                  className={`${inter.className} text-center font-bold text-4xl text-slate-400`}
+                >
+                  Projects
+                </h1>
+              </div>
+              <div className='flex flex-row gap-x-2 my-4 mx-2'>
+                <div
+                  className={`${inter.className} w-full ${
+                    isChuddiesExpanded ? "basis-1/5" : "basis-1/2"
+                  } hover:basis-full bg-slate-900/80 rounded-2xl py-4 backdrop-blur-sm hover:border-green-200 ease-in duration-300`}
+                >
+                  <h2 className='w-full text-center text-3xl font-bold text-slate-300'>
+                    Knock
+                  </h2>
+                  <div className='flex flex-col gap-x-2 pt-4'>
+                    <div className='flex flex-col gap-y-2 px-2'>
+                      <div>
+                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
+                          Overview
+                        </h3>
+                        {isChuddiesExpanded ? (
+                          <p>...</p>
+                        ) : (
+                          <p className='text-slate-300'>
+                            Keep track of your kitchen inventory and find
+                            receipes that prevent food waste.
+                          </p>
+                        )}
+                      </div>
+                      <div>
+                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
+                          Key Features
+                        </h3>
+                        {isChuddiesExpanded ? (
+                          <p>...</p>
+                        ) : (
+                          <ol className='pl-5 list-decimal text-slate-300'>
+                            <li>
+                              Integrated JSON Web Tokens with Auth0 to improve
+                              application security
+                            </li>
+                            <li>
+                              Created a multi-stage aggregation pipeline within
+                              MongoDB to delete child branches once parent nodes
+                              are deleted
+                            </li>
+                            <li>
+                              Drafted UI with TailwindCSS to increase
+                              development speed for custom components
+                            </li>
+                          </ol>
+                        )}
+                      </div>
+                      <div>
+                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
+                          Technical Details
+                        </h3>
+                        {isChuddiesExpanded ? (
+                          <p>...</p>
+                        ) : (
+                          <ol className='pl-5 list-decimal text-slate-300'>
+                            <li>Full Stack MERN Application</li>
+                            <li>Auth0 Integration utilizing JSON Web Tokens</li>
+                            <li>MongoDB Cloud Services</li>
 
-        <Section id='sec2' color='bg-sky-200'>
-          <div className='bg-slate-900 w-screen pt-20 pb-10 shadow-lg mb-4'>
+                            <li>Frontend hosted on Netlify</li>
+                            <li>Server hosted on Heroku</li>
+                          </ol>
+                        )}
+                      </div>
+                    </div>
+                    {isKnockExpanded && (
+                      <div className='relative mr-4 mt-4 w-full'>
+                        <div className='flex flex-row gap-x-4 relative overflow-scroll snap-x snap-mandatory'>
+                          <Image
+                            src='/KnockHomeScreen.PNG'
+                            alt='Knock Home'
+                            width='200'
+                            height='200'
+                            priority
+                            className='snap-center rounded-3xl drop-shadow-lg'
+                          />
+                          <Image
+                            src='/KnockItemsScreen.PNG'
+                            alt='Knock Inventory'
+                            width='200'
+                            height='200'
+                            priority
+                            className='snap-center rounded-3xl '
+                          />
+                          <Image
+                            src='/KnockCartScreen.PNG'
+                            alt='Knock Cart'
+                            width='200'
+                            height='200'
+                            priority
+                            className='snap-center rounded-3xl '
+                          />
+                          <Image
+                            src='/KnockKitchenScreen.PNG'
+                            alt='Knock Kitchen'
+                            width='200'
+                            height='200'
+                            priority
+                            className='snap-center rounded-3xl '
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div
+                  className={`${inter.className} w-full basis-1/2 hover:basis-full bg-slate-600/80 rounded-2xl py-4 backdrop-blur-sm hover:border-green-200 ease-in duration-300`}
+                >
+                  <h2 className='w-full text-center text-3xl font-bold text-slate-300'>
+                    Chuddies
+                  </h2>
+                  <div className='flex flex-row gap-x-2 pt-4'>
+                    <div className='flex flex-col gap-y-2 px-2'>
+                      <div>
+                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
+                          Overview
+                        </h3>
+                        {isKnockExpanded ? (
+                          <p>...</p>
+                        ) : (
+                          <p className='text-slate-300'>
+                            Keep track of your kitchen inventory and find
+                            receipes that prevent food waste.
+                          </p>
+                        )}
+                      </div>
+                      <div>
+                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
+                          Key Features
+                        </h3>
+                        {isKnockExpanded ? (
+                          <p>...</p>
+                        ) : (
+                          <ol className='pl-5 list-decimal text-slate-300'>
+                            <li>
+                              Integrated JSON Web Tokens with Auth0 to improve
+                              application security
+                            </li>
+                            <li>
+                              Created a multi-stage aggregation pipeline within
+                              MongoDB to delete child branches once parent nodes
+                              are deleted
+                            </li>
+                            <li>
+                              Drafted UI with TailwindCSS to increase
+                              development speed for custom components
+                            </li>
+                          </ol>
+                        )}
+                      </div>
+                      <div>
+                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
+                          Technical Details
+                        </h3>
+                        {isKnockExpanded ? (
+                          <p>...</p>
+                        ) : (
+                          <ol className='pl-5 list-decimal text-slate-300'>
+                            <li>Full Stack MERN Application</li>
+                            <li>Auth0 Integration utilizing JSON Web Tokens</li>
+                            <li>MongoDB Cloud Services</li>
+
+                            <li>Frontend hosted on Netlify</li>
+                            <li>Server hosted on Heroku</li>
+                          </ol>
+                        )}
+                      </div>
+                    </div>
+                    {isChuddiesExpanded && (
+                      <div className='w-full mr-4'>
+                        <div className='flex flex-row gap-x-2 relative w-full h-full overflow-scroll snap-x snap-mandatory'>
+                          <Image
+                            src='/KnockHomeScreen.PNG'
+                            alt='Knock Home'
+                            width='400'
+                            height='400'
+                            priority
+                            className='snap-center rounded-3xl drop-shadow-lg'
+                          />
+                          <Image
+                            src='/KnockItemsScreen.PNG'
+                            alt='Knock Inventory'
+                            width='400'
+                            height='400'
+                            priority
+                            className='snap-center rounded-3xl '
+                          />
+                          <Image
+                            src='/KnockCartScreen.PNG'
+                            alt='Knock Cart'
+                            width='400'
+                            height='400'
+                            priority
+                            className='snap-center rounded-3xl '
+                          />
+                          <Image
+                            src='/KnockKitchenScreen.PNG'
+                            alt='Knock Kitchen'
+                            width='400'
+                            height='400'
+                            priority
+                            className='snap-center rounded-3xl '
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div
+                  className={`${inter.className} w-full basis-1/2 hover:basis-full bg-slate-400/80 rounded-2xl py-4 backdrop-blur-sm hover:border-green-200 ease-in duration-300`}
+                >
+                  <h2 className='w-full text-center text-3xl font-bold text-slate-500'>
+                    SAP Automation
+                  </h2>
+                  <div className='flex flex-row gap-x-2 pt-4'>
+                    <div className='flex flex-col gap-y-2 px-2'>
+                      <div>
+                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
+                          Overview
+                        </h3>
+                        {isKnockExpanded ? (
+                          <p>...</p>
+                        ) : (
+                          <p className='text-slate-300'>
+                            Keep track of your kitchen inventory and find
+                            receipes that prevent food waste.
+                          </p>
+                        )}
+                      </div>
+                      <div>
+                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
+                          Key Features
+                        </h3>
+                        {isKnockExpanded ? (
+                          <p>...</p>
+                        ) : (
+                          <ol className='pl-5 list-decimal text-slate-300'>
+                            <li>
+                              Integrated JSON Web Tokens with Auth0 to improve
+                              application security
+                            </li>
+                            <li>
+                              Created a multi-stage aggregation pipeline within
+                              MongoDB to delete child branches once parent nodes
+                              are deleted
+                            </li>
+                            <li>
+                              Drafted UI with TailwindCSS to increase
+                              development speed for custom components
+                            </li>
+                          </ol>
+                        )}
+                      </div>
+                      <div>
+                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
+                          Technical Details
+                        </h3>
+                        {isKnockExpanded ? (
+                          <p>...</p>
+                        ) : (
+                          <ol className='pl-5 list-decimal text-slate-300'>
+                            <li>Full Stack MERN Application</li>
+                            <li>Auth0 Integration utilizing JSON Web Tokens</li>
+                            <li>MongoDB Cloud Services</li>
+
+                            <li>Frontend hosted on Netlify</li>
+                            <li>Server hosted on Heroku</li>
+                          </ol>
+                        )}
+                      </div>
+                    </div>
+                    {isChuddiesExpanded && (
+                      <div className='w-full mr-4'>
+                        <div className='flex flex-row gap-x-2 relative w-full h-full overflow-scroll snap-x snap-mandatory'>
+                          <Image
+                            src='/KnockHomeScreen.PNG'
+                            alt='Knock Home'
+                            width='400'
+                            height='400'
+                            priority
+                            className='snap-center rounded-3xl drop-shadow-lg'
+                          />
+                          <Image
+                            src='/KnockItemsScreen.PNG'
+                            alt='Knock Inventory'
+                            width='400'
+                            height='400'
+                            priority
+                            className='snap-center rounded-3xl '
+                          />
+                          <Image
+                            src='/KnockCartScreen.PNG'
+                            alt='Knock Cart'
+                            width='400'
+                            height='400'
+                            priority
+                            className='snap-center rounded-3xl '
+                          />
+                          <Image
+                            src='/KnockKitchenScreen.PNG'
+                            alt='Knock Kitchen'
+                            width='400'
+                            height='400'
+                            priority
+                            className='snap-center rounded-3xl '
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+        <Section id='sec3' color='bg-slate-600'>
+          <div className='relative w-screen pt-20 pb-10 shadow-lg mb-4'>
             <h1
               className={`${inter.className} text-center font-bold text-4xl text-slate-300`}
             >
-              Blog
+              Articles
             </h1>
           </div>
-        </Section>
-        <Section id='sec3' color='bg-slate-900'>
-          <div className='bg-slate-900 w-screen pt-20 pb-10 shadow-lg'>
-            <h1
-              className={`${inter.className} text-center font-bold text-4xl text-slate-300`}
-            >
-              Projects
-            </h1>
+          <div
+            className={` ${inter.className} grid grid-cols-2 grid-flow-dense gap-4`}
+          >
+            <BlogLink
+              href='/blog/blogOne'
+              date='6/1/2022'
+              title='Utilizing MongoDB Aggregate Pipeline to delete children via
+                  parent root'
+              hashTags={["Nodes", "Aggregation", "MongoDB", "Database"]}
+            />
+            <BlogLink
+              href='/'
+              date='6/1/2022'
+              title='Creating Dynamically Nested Components'
+              hashTags={["Nodes", "FullStack", "Dynamic"]}
+            />
+            <BlogLink
+              href='/'
+              date='6/1/2022'
+              title='Extracting tabulated data from SAP'
+              hashTags={["SAP", "Tables", "Scraping", "Automation"]}
+            />
+            <BlogLink
+              href='/'
+              date='6/1/2022'
+              title='Checking for rendered element in SAP'
+              hashTags={["SAP", "Rendered", "Automation"]}
+            />
           </div>
-          <div className='flex flex-row snap-x snap-mandatory w-[50%] h-full px-28 overflow-scroll scrollbar-hide border-4'>
-            <div className='border'>
-              <h2>Kit</h2>
-            </div>
-            <div className='border'>
-              <h2>Chuddies</h2>
-            </div>
+          <div className='-translate-y-40 xl:block lg:flex rotate-90 z-0'>
+            <Image
+              className='rounded-2xl drop-shadow-lg border-4 border-slate-600'
+              src='/planerunway.jpg'
+              alt='laptop'
+              width={500}
+              height={200}
+              priority
+            />
           </div>
         </Section>
-        <Section id='sec4' color='bg-red-200'>
-          <div className='bg-slate-900 w-screen pt-20 pb-10 shadow-lg mb-'>
+
+        <Section id='sec4' color='bg-slate-500'>
+          <div className='bg-slate-500 w-screen pt-20 pb-10 shadow-lg'>
             <h1
               className={`${inter.className} text-center font-bold text-4xl text-slate-300`}
             >
               Contact Me
             </h1>
-          </div>
-          <div className='w-full h-full relative'>
-            <Image src='/laptopRGB.jpg' alt='laptop' fill priority />
           </div>
         </Section>
       </main>

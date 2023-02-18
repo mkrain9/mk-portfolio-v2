@@ -18,17 +18,18 @@ const Navbar = () => {
         >
           Home
         </button>
+
         <button
+          className={`${inter.className}`}
           onClick={() => handleClickScroll("sec2")}
-          className={`${inter.className}`}
-        >
-          Blog
-        </button>
-        <button
-          className={`${inter.className}`}
-          onClick={() => handleClickScroll("sec3")}
         >
           Projects
+        </button>
+        <button
+          onClick={() => handleClickScroll("sec3")}
+          className={`${inter.className}`}
+        >
+          Articles
         </button>
         <button
           className={`${inter.className}`}
