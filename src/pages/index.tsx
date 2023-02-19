@@ -6,6 +6,7 @@ import Section from "@/components/containers/Section";
 import { useState } from "react";
 import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import BlogLink from "@/components/containers/BlogLink";
+import GridContainer from "@/components/containers/GridContainer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +26,7 @@ export default function Home() {
       </Head>
       <main className='snap-y snap-promixity h-screen w-screen overflow-scroll scrollbar-hide'>
         <Navbar />
-        <Section id='sec1' color='bg-slate-700' size='h-min'>
+        <Section id='sec1' color='bg-slate-700'>
           <div className='relative w-full h-full shadow-xl'>
             <div className='absolute w-full h-full translate-y-20 z-10'>
               <div className='flex flex-row justify-center items-center'>
@@ -44,7 +45,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className='flex xl:w-52 xl:h-52 lg:w-48 lg:h-48 md:w-32 md:h-32 border-2 border-slate-500 rounded-full items-center justify-center shadow bg-slate-800 -translate-x-48 md:-translate-x-20'>
-                  <div className='relative w-full h-full rounded-full overflow-hidden grayscale'>
+                  <div className='relative w-full h-full rounded-full overflow-hidden grayscale shadow-lg'>
                     <Image
                       src='/profile.jpg'
                       alt='profile image'
@@ -56,111 +57,7 @@ export default function Home() {
               </div>
             </div>
             <div className='absolute bottom-10 right-0 translate-x-[48%] -rotate-45 w-[400%] h-[50%] bg-white backdrop-blur-sm shadow-xl z-0' />
-            <div className='absolute top-20 left-20 z-20'>
-              <button
-                className='cursor-pointer flex flex-row gap-x-1'
-                onClick={() => setIsAboutMeOpen(!isAboutMeOpen)}
-              >
-                <h2
-                  className={`${inter.className} select-none text-slate-200 active:text-slate-400`}
-                >
-                  About Me
-                </h2>
-                {!isAboutMeOpen ? (
-                  <BiDownArrow className='mt-1 text-green-400' />
-                ) : (
-                  <BiUpArrow className='mt-1 text-red-400' />
-                )}
-              </button>
-
-              {isAboutMeOpen && (
-                <div className='w-[50%]'>
-                  <p
-                    className={`${inter.className} text-sm text-slate-300 select-none bg-slate-800 p-2 rounded-2xl border-2 border-green-300`}
-                  >
-                    Full Stack Engineer with 3 years of experience in developing
-                    automation software and digital processes for the Chemical
-                    Manufacturing industry. Proficient in JavaScript/TypeScript
-                    with experience in React and React Native. Adept at working
-                    in fast-paced, collaborative environments and continuously
-                    seeking new knowledge, particularly in the area of Machine
-                    Learning Models. Proven ability to lead technical teams and
-                    produce software solutions that yield multi million-dollar
-                    savings for a Fortune 500 company.
-                  </p>
-                </div>
-              )}
-            </div>
-            <div className='absolute bottom-40 right-20'>
-              {isSkillsOpen && (
-                <div className='flex flex-col gap-y-2 mt-6'>
-                  <div
-                    className={`${inter.className} text-sm text-slate-500 select-none bg-slate-300 p-2 rounded-xl border-gray-600 drop-shadow-xl`}
-                  >
-                    <div className='flex flex-row gap-x-2'>
-                      <h3 className='text-slate-500 underline'>Languages ::</h3>
-                      <p> JavaScript, TypeScript, HTML, CSS, Python, C#, VBA</p>
-                    </div>
-                  </div>
-                  <div
-                    className={`${inter.className} text-sm text-slate-300 select-none bg-slate-800 p-2 rounded-2xl border-2 border-green-500`}
-                  >
-                    <div className='flex flex-row gap-x-2'>
-                      <h3 className='text-slate-200 underline'>
-                        Framework/Libraries ::
-                      </h3>
-                      <p> React, Node.js, Express, TailwindCSS, SST, Jest</p>
-                    </div>
-                  </div>
-
-                  <div
-                    className={`${inter.className} text-sm text-slate-300 select-none bg-slate-800 p-2 rounded-2xl border-2 border-green-400`}
-                  >
-                    <div className='flex flex-row gap-x-2'>
-                      <h3 className='text-slate-200 underline'>
-                        Leadership ::
-                      </h3>
-                      <p>
-                        SAP & Production Team Leader, C.I. Site Leader for
-                        Safety and Sustainability, Training
-                        Developer/Coordinator
-                      </p>
-                    </div>
-                  </div>
-                  <div
-                    className={`${inter.className} text-sm text-slate-300 select-none bg-slate-800 p-2 rounded-2xl border-2 border-green-300`}
-                  >
-                    <div className='flex flex-row gap-x-2'>
-                      <h3 className='text-slate-200 underline'>
-                        Communication ::
-                      </h3>
-                      <p>
-                        Ecolab Global Sustainability Presenter, Site Safety
-                        Trainer
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-              <div className='absolute right-0 bottom-0 z-20'>
-                <button
-                  className='cursor-pointer flex flex-row gap-x-1'
-                  onClick={() => setIsSkillsOpen(!isSkillsOpen)}
-                >
-                  <h2
-                    className={`${inter.className} select-none text-slate-700 active:text-slate-500`}
-                  >
-                    Skills
-                  </h2>
-                  {!isSkillsOpen ? (
-                    <BiDownArrow className='mt-1 text-green-400' />
-                  ) : (
-                    <BiUpArrow className='mt-1 text-red-400' />
-                  )}
-                </button>
-              </div>
-            </div>
-
+            {/** 
             <div className='xl:block lg:flex w-full h-full z-0'>
               <Image
                 className='mx-auto'
@@ -170,12 +67,92 @@ export default function Home() {
                 height={1000}
                 priority
               />
+            </div>*/}
+            <div
+              className={`${inter.className} relative flex w-full justify-center pt-[320px]`}
+            >
+              <div className='grid grid-cols-3 gap-2'>
+                <GridContainer
+                  title='About Me'
+                  description={[
+                    [
+                      `Problem solver with 3 years of experience in 
+                    developing automation software and digital processes for the Chemical
+                    Manufacturing industry. Proficient in JavaScript/TypeScript
+                    with experience in React and React Native. `,
+                    ],
+                    [
+                      `Spent years working in fast-paced, collaborative environments and continuously
+                    seeking new knowledge, particularly in the area of Machine
+                    Learning Models. Proven ability to lead technical teams and
+                    produce software solutions that yield multi million-dollar
+                    savings for a Fortune 500 company.`,
+                    ],
+                    [
+                      `Flight enthusiast with a dream to earn my pilot's license.`,
+                    ],
+                  ]}
+                  span='row-span-2'
+                  height='h-[650px]'
+                />
+                <GridContainer
+                  title='Education'
+                  description={[
+                    [`School`, `Penn State University`],
+                    [`Degree`, `Chemical Engineering`],
+                    [`Graduation`, ` May 2019`],
+                    [`Outcome`, ` Technical problem solver`],
+                  ]}
+                  background='bg-slate-800'
+                />
+                <GridContainer
+                  title='Professional Experience'
+                  description={[
+                    [
+                      `Program automation for standard work processes within SAP ERP.`,
+                    ],
+                    [
+                      `Integrate data sources into PowerBI tools to identify trends, promote decision making, and enhance business intelligence.`,
+                    ],
+                    [
+                      `Digitize standard processes to improve traceability and develop analytics.`,
+                    ],
+                  ]}
+                  background='bg-slate-600'
+                />
+                <GridContainer
+                  title='Technical Skills'
+                  description={[
+                    [
+                      `Languages`,
+                      ` JavaScript, TypeScript, HTML, CSS, Python, C#, VBA `,
+                    ],
+                    [
+                      `Framework`,
+                      ` React, Node.js, Express, TailwindCSS, SST, Jest`,
+                    ],
+                    [`Databases`, ` MongoDB, MySQL, DynamoDB`],
+                    [
+                      `Tools`,
+                      ` PowerBI, Excel PowerQuery & Macros, AWS, MS Project, Jira, Asana, Git`,
+                    ],
+                    [
+                      `Design Software`,
+                      ` Autodesk (Fusion 360 - CAD), Solidworks, MATLAB`,
+                    ],
+                  ]}
+                  background='bg-slate-600'
+                />
+                <GridContainer
+                  title='Current Obsession'
+                  description={[["..."]]}
+                  href='/blog'
+                  background='bg-slate-800'
+                />
+              </div>
             </div>
-            {/** 
-            <video className='z-0' autoPlay loop muted>
-              <source src='/intro2.mp4' />
-            </video>*/}
           </div>
+
           {/*
           <div className='bg-slate-800 w-screen pt-20 pb-10 shadow-lg'>
             
