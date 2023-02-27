@@ -228,12 +228,16 @@ export default function Home() {
         <Section id='sec2' color='bg-slate-700' size='h-min'>
           <div className='relative w-full h-full'>
             <div className='w-full h-full shadow-xl'>
-              <div className='w-full pt-20 pb-10 shadow-lg'>
-                <h1
-                  className={`${inter.className} text-center font-bold text-4xl text-slate-400`}
-                >
-                  Projects
-                </h1>
+              <div className={`${inter.className} w-full pb-20 bg-sky-600/10`}>
+                <div className='flex mx-auto justify-center rounded-full rounded-t-sm bg-slate-500/25 w-[75%] h-40 shadow-xl'>
+                  <div className='flex flex-row justify-center items-center'>
+                    <h1
+                      className={`${inter.className} text-center font-bold text-6xl text-slate-400`}
+                    >
+                      Projects
+                    </h1>
+                  </div>
+                </div>
               </div>
               <ProjectContainer
                 title='Knock'
