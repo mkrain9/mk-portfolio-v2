@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 const BlogLayout = ({ children }: { children: any }) => {
   const router = useRouter();
   return (
-    <div className={`${inter.className} w-full flex flex-col bg-slate-700`}>
+    <div className={`${inter.className} w-full flex flex-col bg-slate-600`}>
       <div className='relative w-full py-4 shadow-lg'>
         <h1 className='text-center ml-[27%] mr-[9%] text-3xl font-bold text-slate-400'>
           Articles

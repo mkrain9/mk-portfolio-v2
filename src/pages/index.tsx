@@ -7,6 +7,7 @@ import { useState } from "react";
 import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import BlogLink from "@/components/containers/BlogLink";
 import GridContainer from "@/components/containers/GridContainer";
+import ProjectContainer from "@/components/containers/ProjectContainer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,7 @@ export default function Home() {
       <main className='snap-y snap-promixity h-screen w-screen overflow-scroll scrollbar-hide'>
         <Navbar />
         <Section id='sec1' color='bg-slate-700'>
-          <div className='relative w-full h-full shadow-xl'>
+          <div className='relative w-full h-full shadow-xl bg-sky-600/10'>
             <div className='absolute w-full h-full translate-y-20 z-10'>
               <div className='flex flex-row justify-center items-center'>
                 <div className='flex justify-between py-2 pr-2 pl-10 rounded-full bg-slate-500/25 w-[40%] h-32 backdrop-blur-md shadow-xl'>
@@ -45,7 +46,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className='flex xl:w-52 xl:h-52 lg:w-48 lg:h-48 md:w-32 md:h-32 border-2 border-slate-500 rounded-full items-center justify-center shadow bg-slate-800 -translate-x-48 md:-translate-x-20'>
-                  <div className='relative w-full h-full rounded-full overflow-hidden grayscale shadow-lg'>
+                  <div className='relative w-full h-full rounded-full overflow-hidden grayscale-[25%] shadow-lg'>
                     <Image
                       src='/profile.jpg'
                       alt='profile image'
@@ -76,20 +77,22 @@ export default function Home() {
                   title='About Me'
                   description={[
                     [
-                      `Problem solver with 3 years of experience in 
+                      `Engineer with 3 years of experience in 
                     developing automation software and digital processes for the Chemical
                     Manufacturing industry. Proficient in JavaScript/TypeScript
                     with experience in React and React Native. `,
                     ],
                     [
-                      `Spent years working in fast-paced, collaborative environments and continuously
+                      `Adept with working in fast-paced, collaborative environments and continuously
                     seeking new knowledge, particularly in the area of Machine
                     Learning Models. Proven ability to lead technical teams and
-                    produce software solutions that yield multi million-dollar
+                    produce software solutions that yielded multi million-dollar
                     savings for a Fortune 500 company.`,
                     ],
+
+                    [`On a more personal note:`],
                     [
-                      `Flight enthusiast with a dream to earn my pilot's license.`,
+                      `I am a husband, a father of two cats, and a flight enthusiast with a dream to earn my private pilot's license.`,
                     ],
                   ]}
                   span='row-span-2'
@@ -103,7 +106,6 @@ export default function Home() {
                     [`Graduation`, ` May 2019`],
                     [`Outcome`, ` Technical problem solver`],
                   ]}
-                  background='bg-slate-800'
                 />
                 <GridContainer
                   title='Professional Experience'
@@ -118,7 +120,6 @@ export default function Home() {
                       `Digitize standard processes to improve traceability and develop analytics.`,
                     ],
                   ]}
-                  background='bg-slate-600'
                 />
                 <GridContainer
                   title='Technical Skills'
@@ -141,13 +142,11 @@ export default function Home() {
                       ` Autodesk (Fusion 360 - CAD), Solidworks, MATLAB`,
                     ],
                   ]}
-                  background='bg-slate-600'
                 />
                 <GridContainer
                   title='Current Obsession'
                   description={[["..."]]}
                   href='/blog'
-                  background='bg-slate-800'
                 />
               </div>
             </div>
@@ -226,7 +225,7 @@ export default function Home() {
            </div>
           </div>*/}
         </Section>
-        <Section id='sec2' color='bg-slate-700' size=''>
+        <Section id='sec2' color='bg-slate-700' size='h-min'>
           <div className='relative w-full h-full'>
             <div className='w-full h-full shadow-xl'>
               <div className='w-full pt-20 pb-10 shadow-lg'>
@@ -236,319 +235,78 @@ export default function Home() {
                   Projects
                 </h1>
               </div>
-              <div className='flex flex-row gap-x-2 my-4 mx-2'>
-                <div
-                  className={`${inter.className} w-full ${
-                    isChuddiesExpanded ? "basis-1/5" : "basis-1/2"
-                  } hover:basis-full bg-slate-900/80 rounded-2xl py-4 backdrop-blur-sm hover:border-green-200 ease-in duration-300`}
-                >
-                  <h2 className='w-full text-center text-3xl font-bold text-slate-300'>
-                    Knock
-                  </h2>
-                  <div className='flex flex-col gap-x-2 pt-4'>
-                    <div className='flex flex-col gap-y-2 px-2'>
-                      <div>
-                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
-                          Overview
-                        </h3>
-                        {isChuddiesExpanded ? (
-                          <p>...</p>
-                        ) : (
-                          <p className='text-slate-300'>
-                            Keep track of your kitchen inventory and find
-                            receipes that prevent food waste.
-                          </p>
-                        )}
-                      </div>
-                      <div>
-                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
-                          Key Features
-                        </h3>
-                        {isChuddiesExpanded ? (
-                          <p>...</p>
-                        ) : (
-                          <ol className='pl-5 list-decimal text-slate-300'>
-                            <li>
-                              Integrated JSON Web Tokens with Auth0 to improve
-                              application security
-                            </li>
-                            <li>
-                              Created a multi-stage aggregation pipeline within
+              <ProjectContainer
+                title='Knock'
+                overview={[
+                  `Keep track of your kitchen inventory and find
+                            receipes that prevent food waste.`,
+                ]}
+                keyFeatures={[
+                  ` Integrated JSON Web Tokens with Auth0 to improve
+                              application security`,
+                  `Created a multi-stage aggregation pipeline within
                               MongoDB to delete child branches once parent nodes
-                              are deleted
-                            </li>
-                            <li>
-                              Drafted UI with TailwindCSS to increase
-                              development speed for custom components
-                            </li>
-                          </ol>
-                        )}
-                      </div>
-                      <div>
-                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
-                          Technical Details
-                        </h3>
-                        {isChuddiesExpanded ? (
-                          <p>...</p>
-                        ) : (
-                          <ol className='pl-5 list-decimal text-slate-300'>
-                            <li>Full Stack MERN Application</li>
-                            <li>Auth0 Integration utilizing JSON Web Tokens</li>
-                            <li>MongoDB Cloud Services</li>
-
-                            <li>Frontend hosted on Netlify</li>
-                            <li>Server hosted on Heroku</li>
-                          </ol>
-                        )}
-                      </div>
-                    </div>
-                    {isKnockExpanded && (
-                      <div className='relative mr-4 mt-4 w-full'>
-                        <div className='flex flex-row gap-x-4 relative overflow-scroll snap-x snap-mandatory'>
-                          <Image
-                            src='/KnockHomeScreen.PNG'
-                            alt='Knock Home'
-                            width='200'
-                            height='200'
-                            priority
-                            className='snap-center rounded-3xl drop-shadow-lg'
-                          />
-                          <Image
-                            src='/KnockItemsScreen.PNG'
-                            alt='Knock Inventory'
-                            width='200'
-                            height='200'
-                            priority
-                            className='snap-center rounded-3xl '
-                          />
-                          <Image
-                            src='/KnockCartScreen.PNG'
-                            alt='Knock Cart'
-                            width='200'
-                            height='200'
-                            priority
-                            className='snap-center rounded-3xl '
-                          />
-                          <Image
-                            src='/KnockKitchenScreen.PNG'
-                            alt='Knock Kitchen'
-                            width='200'
-                            height='200'
-                            priority
-                            className='snap-center rounded-3xl '
-                          />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <div
-                  className={`${inter.className} w-full basis-1/2 hover:basis-full bg-slate-600/80 rounded-2xl py-4 backdrop-blur-sm hover:border-green-200 ease-in duration-300`}
-                >
-                  <h2 className='w-full text-center text-3xl font-bold text-slate-300'>
-                    Chuddies
-                  </h2>
-                  <div className='flex flex-row gap-x-2 pt-4'>
-                    <div className='flex flex-col gap-y-2 px-2'>
-                      <div>
-                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
-                          Overview
-                        </h3>
-                        {isKnockExpanded ? (
-                          <p>...</p>
-                        ) : (
-                          <p className='text-slate-300'>
-                            Keep track of your kitchen inventory and find
-                            receipes that prevent food waste.
-                          </p>
-                        )}
-                      </div>
-                      <div>
-                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
-                          Key Features
-                        </h3>
-                        {isKnockExpanded ? (
-                          <p>...</p>
-                        ) : (
-                          <ol className='pl-5 list-decimal text-slate-300'>
-                            <li>
-                              Integrated JSON Web Tokens with Auth0 to improve
-                              application security
-                            </li>
-                            <li>
-                              Created a multi-stage aggregation pipeline within
+                              are deleted`,
+                  `Drafted UI with TailwindCSS to increase
+                              development speed for custom components`,
+                ]}
+                techDetails={[
+                  `Full Stack MERN Application`,
+                  `Auth0 Integration utilizing JSON Web Tokens`,
+                  `MongoDB Cloud Services`,
+                  `Frontend hosted on Netlify`,
+                  `Server hosted on Heroku`,
+                ]}
+                reverse={false}
+              />
+              <ProjectContainer
+                title='Chuddies'
+                overview={[
+                  `Keep track of your kitchen inventory and find
+                            receipes that prevent food waste.`,
+                ]}
+                keyFeatures={[
+                  ` Integrated JSON Web Tokens with Auth0 to improve
+                              application security`,
+                  `Created a multi-stage aggregation pipeline within
                               MongoDB to delete child branches once parent nodes
-                              are deleted
-                            </li>
-                            <li>
-                              Drafted UI with TailwindCSS to increase
-                              development speed for custom components
-                            </li>
-                          </ol>
-                        )}
-                      </div>
-                      <div>
-                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
-                          Technical Details
-                        </h3>
-                        {isKnockExpanded ? (
-                          <p>...</p>
-                        ) : (
-                          <ol className='pl-5 list-decimal text-slate-300'>
-                            <li>Full Stack MERN Application</li>
-                            <li>Auth0 Integration utilizing JSON Web Tokens</li>
-                            <li>MongoDB Cloud Services</li>
-
-                            <li>Frontend hosted on Netlify</li>
-                            <li>Server hosted on Heroku</li>
-                          </ol>
-                        )}
-                      </div>
-                    </div>
-                    {isChuddiesExpanded && (
-                      <div className='w-full mr-4'>
-                        <div className='flex flex-row gap-x-2 relative w-full h-full overflow-scroll snap-x snap-mandatory'>
-                          <Image
-                            src='/KnockHomeScreen.PNG'
-                            alt='Knock Home'
-                            width='400'
-                            height='400'
-                            priority
-                            className='snap-center rounded-3xl drop-shadow-lg'
-                          />
-                          <Image
-                            src='/KnockItemsScreen.PNG'
-                            alt='Knock Inventory'
-                            width='400'
-                            height='400'
-                            priority
-                            className='snap-center rounded-3xl '
-                          />
-                          <Image
-                            src='/KnockCartScreen.PNG'
-                            alt='Knock Cart'
-                            width='400'
-                            height='400'
-                            priority
-                            className='snap-center rounded-3xl '
-                          />
-                          <Image
-                            src='/KnockKitchenScreen.PNG'
-                            alt='Knock Kitchen'
-                            width='400'
-                            height='400'
-                            priority
-                            className='snap-center rounded-3xl '
-                          />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <div
-                  className={`${inter.className} w-full basis-1/2 hover:basis-full bg-slate-400/80 rounded-2xl py-4 backdrop-blur-sm hover:border-green-200 ease-in duration-300`}
-                >
-                  <h2 className='w-full text-center text-3xl font-bold text-slate-500'>
-                    SAP Automation
-                  </h2>
-                  <div className='flex flex-row gap-x-2 pt-4'>
-                    <div className='flex flex-col gap-y-2 px-2'>
-                      <div>
-                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
-                          Overview
-                        </h3>
-                        {isKnockExpanded ? (
-                          <p>...</p>
-                        ) : (
-                          <p className='text-slate-300'>
-                            Keep track of your kitchen inventory and find
-                            receipes that prevent food waste.
-                          </p>
-                        )}
-                      </div>
-                      <div>
-                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
-                          Key Features
-                        </h3>
-                        {isKnockExpanded ? (
-                          <p>...</p>
-                        ) : (
-                          <ol className='pl-5 list-decimal text-slate-300'>
-                            <li>
-                              Integrated JSON Web Tokens with Auth0 to improve
-                              application security
-                            </li>
-                            <li>
-                              Created a multi-stage aggregation pipeline within
+                              are deleted`,
+                  `Drafted UI with TailwindCSS to increase
+                              development speed for custom components`,
+                ]}
+                techDetails={[
+                  `Full Stack MERN Application`,
+                  `Auth0 Integration utilizing JSON Web Tokens`,
+                  `MongoDB Cloud Services`,
+                  `Frontend hosted on Netlify`,
+                  `Server hosted on Heroku`,
+                ]}
+                reverse={true}
+              />
+              <ProjectContainer
+                title='SAP Automation'
+                overview={[
+                  `Keep track of your kitchen inventory and find
+                            receipes that prevent food waste.`,
+                ]}
+                keyFeatures={[
+                  ` Integrated JSON Web Tokens with Auth0 to improve
+                              application security`,
+                  `Created a multi-stage aggregation pipeline within
                               MongoDB to delete child branches once parent nodes
-                              are deleted
-                            </li>
-                            <li>
-                              Drafted UI with TailwindCSS to increase
-                              development speed for custom components
-                            </li>
-                          </ol>
-                        )}
-                      </div>
-                      <div>
-                        <h3 className='text-slate-500 hover:text-green-200 ease-in duration-100'>
-                          Technical Details
-                        </h3>
-                        {isKnockExpanded ? (
-                          <p>...</p>
-                        ) : (
-                          <ol className='pl-5 list-decimal text-slate-300'>
-                            <li>Full Stack MERN Application</li>
-                            <li>Auth0 Integration utilizing JSON Web Tokens</li>
-                            <li>MongoDB Cloud Services</li>
-
-                            <li>Frontend hosted on Netlify</li>
-                            <li>Server hosted on Heroku</li>
-                          </ol>
-                        )}
-                      </div>
-                    </div>
-                    {isChuddiesExpanded && (
-                      <div className='w-full mr-4'>
-                        <div className='flex flex-row gap-x-2 relative w-full h-full overflow-scroll snap-x snap-mandatory'>
-                          <Image
-                            src='/KnockHomeScreen.PNG'
-                            alt='Knock Home'
-                            width='400'
-                            height='400'
-                            priority
-                            className='snap-center rounded-3xl drop-shadow-lg'
-                          />
-                          <Image
-                            src='/KnockItemsScreen.PNG'
-                            alt='Knock Inventory'
-                            width='400'
-                            height='400'
-                            priority
-                            className='snap-center rounded-3xl '
-                          />
-                          <Image
-                            src='/KnockCartScreen.PNG'
-                            alt='Knock Cart'
-                            width='400'
-                            height='400'
-                            priority
-                            className='snap-center rounded-3xl '
-                          />
-                          <Image
-                            src='/KnockKitchenScreen.PNG'
-                            alt='Knock Kitchen'
-                            width='400'
-                            height='400'
-                            priority
-                            className='snap-center rounded-3xl '
-                          />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
+                              are deleted`,
+                  `Drafted UI with TailwindCSS to increase
+                              development speed for custom components`,
+                ]}
+                techDetails={[
+                  `Full Stack MERN Application`,
+                  `Auth0 Integration utilizing JSON Web Tokens`,
+                  `MongoDB Cloud Services`,
+                  `Frontend hosted on Netlify`,
+                  `Server hosted on Heroku`,
+                ]}
+                reverse={false}
+              />
             </div>
           </div>
         </Section>
@@ -566,7 +324,7 @@ export default function Home() {
             <BlogLink
               href='/blog/blogOne'
               date='6/1/2022'
-              title='Utilizing MongoDB Aggregate Pipeline to delete children via
+              title='Utilizing MongoDB Aggregate Pipeline to delete child nodes via
                   parent root'
               hashTags={["Nodes", "Aggregation", "MongoDB", "Database"]}
             />

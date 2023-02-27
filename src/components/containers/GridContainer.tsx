@@ -22,8 +22,10 @@ const GridContainer = ({
   return (
     <>
       {href == "" ? (
-        <div className={`w-[400px] ${height} ${background} ${span} shadow-lg`}>
-          <h1 className='text-md text-center text-slate-200 font-bold pt-2'>
+        <div
+          className={`w-[400px] ${height} ${background} ${span} drop-shadow-lg rounded-sm`}
+        >
+          <h1 className='text-md text-center text-slate-800 font-bold pt-2'>
             {title}
           </h1>
           <div className='pt-2'>
@@ -52,9 +54,9 @@ const GridContainer = ({
       ) : (
         <Link
           href={href}
-          className={`w-[400px] ${height} ${background} ${span} shadow-lg`}
+          className={`w-[400px] ${height} ${background} ${span} drop-shadow-lg rounded-sm`}
         >
-          <h1 className='text-md text-center text-slate-200 font-bold pt-4'>
+          <h1 className='text-md text-center text-slate-800 font-bold pt-4'>
             {title}
           </h1>
           {description.map((item) => (
