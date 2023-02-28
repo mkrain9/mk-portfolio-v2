@@ -75,6 +75,7 @@ export default function Home() {
             >
               <div className='grid grid-cols-3 gap-2'>
                 <GridContainer
+                  key={"1"}
                   title='About Me'
                   description={[
                     [
@@ -100,6 +101,7 @@ export default function Home() {
                   height='h-[650px]'
                 />
                 <GridContainer
+                  key={"2"}
                   title='Education'
                   description={[
                     [`School`, `Penn State University`],
@@ -109,6 +111,7 @@ export default function Home() {
                   ]}
                 />
                 <GridContainer
+                  key={"3"}
                   title='Professional Experience'
                   description={[
                     [
@@ -123,6 +126,7 @@ export default function Home() {
                   ]}
                 />
                 <GridContainer
+                  key={"4"}
                   title='Technical Skills'
                   description={[
                     [
@@ -145,6 +149,7 @@ export default function Home() {
                   ]}
                 />
                 <GridContainer
+                  key={"5"}
                   title='Current Obsession'
                   description={[["..."]]}
                   href='/blog'
@@ -231,13 +236,14 @@ export default function Home() {
             <div className='w-full h-full shadow-xl'>
               <SectionHeader title='Projects' />
               <ProjectContainer
+                key={"1"}
                 title='Knock'
                 overview={[
                   `Keep track of your kitchen inventory and find
                             receipes that prevent food waste.`,
                 ]}
                 keyFeatures={[
-                  ` Integrated JSON Web Tokens with Auth0 to improve
+                  `Integrated JSON Web Tokens with Auth0 to improve
                               application security`,
                   `Created a multi-stage aggregation pipeline within
                               MongoDB to delete child branches once parent nodes
@@ -255,51 +261,35 @@ export default function Home() {
                 reverse={false}
               />
               <ProjectContainer
+                key={"2"}
                 title='Chuddies'
                 overview={[
-                  `Keep track of your kitchen inventory and find
-                            receipes that prevent food waste.`,
+                  `Combination of chores and buddies: Manage chore duties with your household in a playful, competitive style.`,
                 ]}
                 keyFeatures={[
-                  ` Integrated JSON Web Tokens with Auth0 to improve
-                              application security`,
-                  `Created a multi-stage aggregation pipeline within
-                              MongoDB to delete child branches once parent nodes
-                              are deleted`,
-                  `Drafted UI with TailwindCSS to increase
-                              development speed for custom components`,
+                  `Clean and minimal UI to encourage logging into application`,
+                  `Keeps track of weekly winners, with future ability to integrate allowances for families`,
                 ]}
                 techDetails={[
-                  `Full Stack MERN Application`,
-                  `Auth0 Integration utilizing JSON Web Tokens`,
-                  `MongoDB Cloud Services`,
-                  `Frontend hosted on Netlify`,
-                  `Server hosted on Heroku`,
+                  `Full Stack Serverless Application with AWS`,
+                  `Utilizing AWS wrapped with SST for smooth Infrastructure As Code development`,
+                  `Developed with TailwindCSS for easy-to-build custom components`,
                 ]}
                 reverse={true}
               />
               <ProjectContainer
+                key={"3"}
                 title='SAP Automation'
                 overview={[
-                  `Keep track of your kitchen inventory and find
-                            receipes that prevent food waste.`,
+                  `Remove time-intensive, repetitive, error prone tasks, specialist training, and improve financial accuracy`,
                 ]}
                 keyFeatures={[
-                  ` Integrated JSON Web Tokens with Auth0 to improve
-                              application security`,
-                  `Created a multi-stage aggregation pipeline within
-                              MongoDB to delete child branches once parent nodes
-                              are deleted`,
-                  `Drafted UI with TailwindCSS to increase
-                              development speed for custom components`,
+                  `Improve time efficiency by 10x`,
+                  `Eliminates human errors, interacting with / and comprehending information from SAP`,
+                  `Reduces training time for SAP users`,
+                  `Opportunity for horizontal scalability and can be expanded for any SAP function`,
                 ]}
-                techDetails={[
-                  `Full Stack MERN Application`,
-                  `Auth0 Integration utilizing JSON Web Tokens`,
-                  `MongoDB Cloud Services`,
-                  `Frontend hosted on Netlify`,
-                  `Server hosted on Heroku`,
-                ]}
+                techDetails={[`Programmed in VBA`]}
                 reverse={false}
               />
             </div>
@@ -311,6 +301,7 @@ export default function Home() {
             className={` ${inter.className} grid grid-cols-2 grid-flow-dense gap-4`}
           >
             <BlogLink
+              key={"1"}
               href='/blog/blogOne'
               date='6/1/2022'
               title='Utilizing MongoDB Aggregate Pipeline to delete child nodes via
@@ -318,18 +309,21 @@ export default function Home() {
               hashTags={["Nodes", "Aggregation", "MongoDB", "Database"]}
             />
             <BlogLink
+              key={"2"}
               href='/'
               date='6/1/2022'
               title='Creating Dynamically Nested Components'
               hashTags={["Nodes", "FullStack", "Dynamic"]}
             />
             <BlogLink
+              key={"3"}
               href='/'
               date='6/1/2022'
               title='Extracting tabulated data from SAP'
               hashTags={["SAP", "Tables", "Scraping", "Automation"]}
             />
             <BlogLink
+              key={"4"}
               href='/'
               date='6/1/2022'
               title='Checking for rendered element in SAP'
