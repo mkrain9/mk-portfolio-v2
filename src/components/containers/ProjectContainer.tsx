@@ -28,6 +28,9 @@ const ProjectContainer = ({
           <div
             className={`pt-4 ${reverse == true ? "text-left" : "text-right"}`}
           >
+            <h2 className='translate-y-16 translate-x-1 text-6xl font-bold text-emerald-600/70 drop-shadow-lg'>
+              {title}
+            </h2>
             <h2 className='text-6xl font-bold text-gray-800 drop-shadow-lg'>
               {title}
             </h2>
@@ -44,8 +47,11 @@ const ProjectContainer = ({
                 Key Features
               </h3>
               <div className='mb-2 pt-2 -translate-y-2 px-2 border drop-shadow-lg border-slate-300/50 bg-slate-300/50 rounded-lg backdrop-blur-sm'>
-                {keyFeatures.map((feature) => (
-                  <p className='text-slate-800'>{feature}</p>
+                {keyFeatures.map((feature, i) => (
+                  <div className='flex flex-row justify-between'>
+                    <p className='font-bold text-slate-500'>*</p>
+                    <p className='text-slate-800'>{feature}</p>
+                  </div>
                 ))}
               </div>
               <h3 className='relative z-10 text-3xl font-bold text-gray-800 drop-shadow-lg bg-slate-300 rounded-lg px-2'>

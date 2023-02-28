@@ -8,6 +8,7 @@ import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import BlogLink from "@/components/containers/BlogLink";
 import GridContainer from "@/components/containers/GridContainer";
 import ProjectContainer from "@/components/containers/ProjectContainer";
+import SectionHeader from "@/components/SectionHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -228,17 +229,7 @@ export default function Home() {
         <Section id='sec2' color='bg-slate-700' size='h-min'>
           <div className='relative w-full h-full'>
             <div className='w-full h-full shadow-xl'>
-              <div className={`${inter.className} w-full pb-20 bg-sky-600/10`}>
-                <div className='flex mx-auto justify-center rounded-full rounded-t-sm bg-slate-500/25 w-[75%] h-40 shadow-xl'>
-                  <div className='flex flex-row justify-center items-center'>
-                    <h1
-                      className={`${inter.className} text-center font-bold text-6xl text-slate-400`}
-                    >
-                      Projects
-                    </h1>
-                  </div>
-                </div>
-              </div>
+              <SectionHeader title='Projects' />
               <ProjectContainer
                 title='Knock'
                 overview={[
@@ -315,13 +306,7 @@ export default function Home() {
           </div>
         </Section>
         <Section id='sec3' color='bg-slate-600'>
-          <div className='relative w-screen pt-20 pb-10 shadow-lg mb-4'>
-            <h1
-              className={`${inter.className} text-center font-bold text-4xl text-slate-300`}
-            >
-              Articles
-            </h1>
-          </div>
+          <SectionHeader title='Articles' />
           <div
             className={` ${inter.className} grid grid-cols-2 grid-flow-dense gap-4`}
           >
@@ -364,13 +349,7 @@ export default function Home() {
         </Section>
 
         <Section id='sec4' color='bg-slate-500'>
-          <div className='bg-slate-500 w-screen pt-20 pb-10 shadow-lg'>
-            <h1
-              className={`${inter.className} text-center font-bold text-4xl text-slate-300`}
-            >
-              Contact Me
-            </h1>
-          </div>
+          <SectionHeader title='Contact Me' />
         </Section>
       </main>
     </>
