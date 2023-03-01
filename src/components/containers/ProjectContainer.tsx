@@ -47,16 +47,20 @@ const ProjectContainer = ({
                 Key Features
               </h3>
               <div className='mb-2 pt-2 -translate-y-2 px-2 border drop-shadow-lg border-slate-300/50 bg-slate-300/50 rounded-lg backdrop-blur-sm'>
-                {keyFeatures.map((feature, i) => (
-                  <p className='text-slate-800'>{feature}</p>
+                {keyFeatures.map((feature, index) => (
+                  <p key={index} className='text-slate-800'>
+                    {feature}
+                  </p>
                 ))}
               </div>
               <h3 className='relative z-10 text-3xl font-bold text-gray-800 drop-shadow-lg bg-slate-300 rounded-lg px-2'>
                 Technical Details
               </h3>
               <div className='pt-2 -translate-y-2 px-2 border drop-shadow-lg border-slate-300/50 bg-slate-300/50 rounded-lg backdrop-blur-sm'>
-                {techDetails.map((details) => (
-                  <p className='text-slate-800'>{details}</p>
+                {techDetails.map((details, index) => (
+                  <p key={index} className='text-slate-800'>
+                    {details}
+                  </p>
                 ))}
               </div>
             </div>

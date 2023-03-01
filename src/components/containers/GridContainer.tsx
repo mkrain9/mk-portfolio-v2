@@ -30,8 +30,11 @@ const GridContainer = ({
           </h1>
           <div className='pt-2'>
             {description[0][1]
-              ? description.map((item) => (
-                  <div className='grid divide-x-2 divide-y-2 divide-slate-500 grid-cols-2 -translate-x-12'>
+              ? description.map((item, index) => (
+                  <div
+                    key={index}
+                    className='grid divide-x-2 divide-y-2 divide-slate-500 grid-cols-2 -translate-x-12'
+                  >
                     <p
                       className={`text-sm text-end font-bold text-slate-200 px-4 py-2`}
                     >
@@ -44,8 +47,8 @@ const GridContainer = ({
                     </p>
                   </div>
                 ))
-              : description.map((item) => (
-                  <div className=''>
+              : description.map((item, index) => (
+                  <div key={index} className=''>
                     <p className={`text-sm text-slate-200 px-4 py-2`}>{item}</p>
                   </div>
                 ))}
@@ -59,8 +62,10 @@ const GridContainer = ({
           <h1 className='text-md text-center text-slate-800 font-bold pt-4'>
             {title}
           </h1>
-          {description.map((item) => (
-            <p className={`text-sm text-slate-200 px-4 py-2`}>{item}</p>
+          {description.map((item, index) => (
+            <p key={index} className={`text-sm text-slate-200 px-4 py-2`}>
+              {item}
+            </p>
           ))}
         </Link>
       )}

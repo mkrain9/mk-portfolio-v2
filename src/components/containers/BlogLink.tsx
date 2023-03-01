@@ -21,8 +21,10 @@ const BlogLink = ({
         <div className='flex flex-row justify-between'>
           <p className='text-slate-400 relative'>{date}</p>
           <div className='flex flex-row gap-x-2 text-slate-400 cursor-pointer'>
-            {hashTags?.map((hashTag) => (
-              <p className='hover:text-sky-300 relative'>#{hashTag}</p>
+            {hashTags?.map((hashTag, index) => (
+              <p key={index} className='hover:text-sky-300 relative'>
+                #{hashTag}
+              </p>
             ))}
           </div>
         </div>
