@@ -29,8 +29,8 @@ const blogOne = () => {
           series, but can be a child of another node.
         </p>
         <p>
-          Before we get started, let's discuss nodes, documents, and pointers in
-          in MongoDB.
+          Before we get started, let&apos;s discuss nodes, documents, and
+          pointers in in MongoDB.
         </p>
         <h3 className='font-bold text-xl text-slate-900'>Definitions</h3>
         <h4 className='font-bold text-lg text-emerald-500'>Nodes</h4>
@@ -56,7 +56,7 @@ const blogOne = () => {
         <p>
           With the basics taken care of. We will define a cursor, calling the
           database.aggregate property. The pipeline below will locate child
-          id's, which will be saved in the constant
+          id&apos;s, which will be saved in the constant
           <code className='text-green-200 bg-slate-800'>dataIds</code>.
         </p>
         <p>`More explanation for aggregate fields.`</p>
